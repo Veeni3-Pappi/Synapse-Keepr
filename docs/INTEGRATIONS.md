@@ -13,6 +13,8 @@ Synapse Keepr imports a user's saved videos through the YouTube Data API, not by
 
 An API key alone cannot read a person's private playlists or saved videos; the user must complete OAuth consent. The redirect URI must exactly match the Google Cloud configuration.
 
+You may still create a restricted YouTube API key for public-data requests and quota monitoring, but it is not used to import a signed-in user's private library.
+
 ## AI summaries
 
 The summary endpoint runs in Celery so a dashboard request never waits on an AI response. It sends the imported description or a future authorized transcript to the OpenAI Responses API and saves the result on `ResourceSummary`.
