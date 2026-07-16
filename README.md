@@ -31,6 +31,7 @@ scripts/   Project automation
 - [API plan](docs/API.md)
 - [Database plan](docs/DATABASE.md)
 - [Roadmap](docs/ROADMAP.md)
+- [YouTube and AI integrations](docs/INTEGRATIONS.md)
 
 ## Local development
 

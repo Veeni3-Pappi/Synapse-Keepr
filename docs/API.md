@@ -24,6 +24,10 @@ Authenticated endpoints for an owner's imported videos. The list accepts optiona
 
 Authenticated endpoints that expose an owner's import-job status and progress counters. Creating an import job will be added alongside the YouTube connection flow.
 
+### `POST /resources/{id}/summary/`
+
+Queues an AI summary for an owned resource and returns `202 Accepted`. Poll `GET /resources/{id}/` for the summary status and content. Summaries require `OPENAI_API_KEY` and either an imported description or an authorized transcript.
+
 | Area | Planned endpoints | Purpose |
 | --- | --- | --- |
 | Authentication | `POST /auth/google/`, `POST /auth/refresh/`, `POST /auth/logout/` | Exchange Google authorization for application JWTs and manage sessions. |

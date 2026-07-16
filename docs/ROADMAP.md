@@ -18,6 +18,7 @@
 - [ ] Google sign-in and application JWT session
 - [ ] YouTube connection flow
 - [x] Import-job persistence and owner-scoped progress polling API
+- [x] Asynchronous AI-summary job foundation
 - [ ] Playlist and video import worker
 - [x] Owner-scoped playlist and video browse/search API foundation
 - [ ] Dashboard browsing and import progress

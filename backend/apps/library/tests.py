@@ -1,8 +1,9 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
+from unittest.mock import patch
 
-from .models import ImportJob, IntegrationConnection, Playlist, PlaylistResource, Provider, Resource
+from .models import ImportJob, IntegrationConnection, Playlist, PlaylistResource, Provider, Resource, ResourceSummary
 
 
 class LibraryApiTests(TestCase):
@@ -65,3 +66,12 @@ class LibraryApiTests(TestCase):
         self.assertEqual(len(response.json()), 1)
         self.assertEqual(response.json()[0]["status"], "running")
         self.assertEqual(response.json()[0]["playlists_discovered"], 3)
+
+    @patch("apps.library.views.generate_resource_summary.delay")
+    def test_summary_request_is_queued_for_owned_resource(self, delay):
+        response = self.client.post(reverse("resource-summary-create", args=[self.resource.pk]))
+
+        self.assertEqual(response.status_code, 202)
+        self.assertEqual(response.json()["status"], "queued")
+        summary = ResourceSummary.objects.get(resource=self.resource)
+        delay.assert_called_once_with(summary.pk)

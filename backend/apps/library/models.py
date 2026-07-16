@@ -80,3 +80,19 @@ class ImportJob(models.Model):
 
     class Meta:
         ordering = ["-created_at"]
+
+
+class ResourceSummary(models.Model):
+    class Status(models.TextChoices):
+        QUEUED = "queued", "Queued"
+        PROCESSING = "processing", "Processing"
+        COMPLETED = "completed", "Completed"
+        FAILED = "failed", "Failed"
+
+    resource = models.OneToOneField(Resource, on_delete=models.CASCADE, related_name="summary")
+    status = models.CharField(max_length=16, choices=Status.choices, default=Status.QUEUED)
+    content = models.TextField(blank=True)
+    model = models.CharField(max_length=100, blank=True)
+    error_detail = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
