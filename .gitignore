@@ -9,6 +9,7 @@ frontend/.next/
 frontend/out/
 frontend/coverage/
 frontend/*.tsbuildinfo
+frontend/.env.local
 
 # Python / Django
 backend/.venv/

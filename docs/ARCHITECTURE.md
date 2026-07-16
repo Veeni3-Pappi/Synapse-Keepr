@@ -41,3 +41,11 @@ YouTube will be the first implementation of the integration contract. Future sou
 - User-created notes and OCR
 - Collaboration and sharing
 - Production billing, quotas, and analytics
+
+## Local service topology
+
+Docker Compose runs five services: `frontend`, `backend`, `worker`, `db`, and `redis`. PostgreSQL data is stored in a named local volume; no application data is mounted from outside the project. This is the supported contributor environment and mirrors the production service boundaries without introducing deployment-specific configuration into application code.
+
+## Dashboard data boundary
+
+The dashboard UI reads a typed `Resource` collection from `frontend/lib/resources.ts`. It currently provides intentional demo content while the YouTube import API does not exist. The UI does not own provider-specific fields or call YouTube directly; the future TanStack Query resource repository will replace this module while preserving the same component contract.

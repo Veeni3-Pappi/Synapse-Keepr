@@ -32,6 +32,20 @@ scripts/   Project automation
 - [Database plan](docs/DATABASE.md)
 - [Roadmap](docs/ROADMAP.md)
 
+## Local development
+
+The project uses Docker Compose so every contributor runs compatible PostgreSQL, Redis, backend, Celery worker, and frontend services.
+
+1. Copy `.env.example` to `.env`.
+2. Run `docker compose up --build`.
+3. Visit `http://localhost:3000`. Verify the API at `http://localhost:8000/api/v1/health/`.
+
+To stop services, run `docker compose down`. Add `--volumes` only when you deliberately want to discard local database data.
+
+## Contributing
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before making changes. Every implemented decision must update the appropriate document in `docs/`.
+
 ## Status
 
-Project structure is in place. Framework setup and the first vertical slice will be added incrementally.
+The contributor-ready foundation is in place: local services, a Django API health check, Celery configuration, and a Next.js application shell. The next slice is the polished dashboard design system.

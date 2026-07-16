@@ -2,6 +2,16 @@
 
 All endpoints will be namespaced under `/api/v1/`. This is an implementation plan; endpoints will be documented with request and response examples as they are built.
 
+## Implemented
+
+### `GET /health/`
+
+Public liveness endpoint. It returns `200 OK` with:
+
+```json
+{ "status": "ok", "service": "synapse-keepr-api" }
+```
+
 | Area | Planned endpoints | Purpose |
 | --- | --- | --- |
 | Authentication | `POST /auth/google/`, `POST /auth/refresh/`, `POST /auth/logout/` | Exchange Google authorization for application JWTs and manage sessions. |

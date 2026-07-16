@@ -3,14 +3,15 @@
 ## Phase 0 — Foundation
 
 - [x] Monorepo layout and architecture documentation
-- [ ] Git repository initialization
-- [ ] Environment examples and local service configuration
+- [x] Environment examples and local service configuration
+- [x] Django REST foundation and health endpoint
+- [x] Next.js application shell with TanStack Query provider
+- [x] Contributor guide and documentation update policy
 
 ## Phase 1 — Working product shell
 
-- [ ] Next.js dashboard foundation and design system
-- [ ] Django REST foundation and health endpoint
-- [ ] PostgreSQL, Redis, and Celery local development setup
+- [x] Responsive dashboard foundation with local search and playlist filtering
+- [x] PostgreSQL, Redis, and Celery local development setup
 
 ## Phase 2 — YouTube MVP
 
