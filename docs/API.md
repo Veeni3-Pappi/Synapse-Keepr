@@ -12,13 +12,23 @@ Public liveness endpoint. It returns `200 OK` with:
 { "status": "ok", "service": "synapse-keepr-api" }
 ```
 
+### `GET /playlists/` and `GET /playlists/{id}/`
+
+Authenticated endpoints for an owner's imported YouTube playlists. List items include their imported-resource count.
+
+### `GET /resources/` and `GET /resources/{id}/`
+
+Authenticated endpoints for an owner's imported videos. The list accepts optional `q` (keyword search over title and description) and `playlist` (playlist ID) query parameters.
+
+### `GET /imports/` and `GET /imports/{id}/`
+
+Authenticated endpoints that expose an owner's import-job status and progress counters. Creating an import job will be added alongside the YouTube connection flow.
+
 | Area | Planned endpoints | Purpose |
 | --- | --- | --- |
 | Authentication | `POST /auth/google/`, `POST /auth/refresh/`, `POST /auth/logout/` | Exchange Google authorization for application JWTs and manage sessions. |
 | Integrations | `GET /integrations/`, `POST /integrations/youtube/connect/` | Show connection state and begin/complete YouTube authorization. |
-| Imports | `POST /imports/youtube/`, `GET /imports/{id}/` | Start an import and poll job progress. |
-| Playlists | `GET /playlists/`, `GET /playlists/{id}/` | Browse imported YouTube playlists. |
-| Resources | `GET /resources/`, `GET /resources/{id}/` | List, search, filter, and view imported videos. |
+| Imports | `POST /imports/youtube/` | Start an import after YouTube authorization. |
 
 ## API conventions
 

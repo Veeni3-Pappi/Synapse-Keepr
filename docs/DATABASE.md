@@ -1,6 +1,6 @@
 # Database Plan
 
-PostgreSQL is the system of record. Django migrations are the source of truth once the backend is bootstrapped.
+PostgreSQL is the system of record. Django migrations are the source of truth. The initial `library` migration implements the core YouTube MVP entities below.
 
 ## Core entities
 
